@@ -1,6 +1,9 @@
+
+// Componente di gestione per l'aggiunta di Tasks
 const AddTask = () => {
+
     return (
-        <h1>Benvenuto su Tasks</h1>
+        <h1>Task</h1>
     )
 
 }

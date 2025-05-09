@@ -1,26 +1,32 @@
-import { useState } from 'react'
-import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
-import { DefautlLayout } from '../layout/DefaultLayout.jsx'
-import { AddTask } from '../pages/AddTask.jsx'
-import { TaskList } from '../pages/TaskList.jsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom' // Importiamo i componenti necessari per il routing di React
+import { DefautlLayout } from '../layout/DefaultLayout.jsx' // Importiamo il layout principale dell'applicazione
+import { AddTask } from '../pages/AddTask.jsx' // Componente per aggiungere nuove attività
+import { TaskList } from '../pages/TaskList.jsx' // Componente per visualizzare la lista delle attività
+import { GlobalProvider } from '../providers/globalContext.jsx' // Provider del contesto globale per la gestione e l'accesso ai dati
+import "bootstrap/dist/css/bootstrap.min.css" // Importiamo gli stili di Bootstrap
+import './App.css' // Importiamo gli stili personalizzati
 
+/**
+ * Componente principale dell'applicazione che configura:
+ * - Il provider del contesto globale
+ * - Il sistema di routing dell'applicazione
+ * - La struttura base delle pagine con il layout predefinito
+ */
 
 function App() {
-
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefautlLayout />}>
-            <Route path='/' />
-            <Route path='/addTask' element={<AddTask />} />
-            <Route path='/taskList' element={<TaskList />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GlobalProvider>                                              {/* GlobalProvider avvolge l'intera applicazione per condividere lo stato globale */}
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefautlLayout />}>                     {/* Route principale che applica il layout predefinito a tutte le pagine */}
+              <Route path='/' element={<></>} />                    {/* Pagina iniziale (homepage) - attualmente senza contenuto specifico */}
+              <Route path='/addTask' element={<AddTask />} />       {/* Pagina per aggiungere una nuova attività */}
+              <Route path='/taskList' element={<TaskList />} />     {/* Pagina per visualizzare la lista delle attività */}
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
     </>
   )
 }

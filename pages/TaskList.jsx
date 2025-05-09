@@ -1,6 +1,14 @@
+import { useContext } from "react" // Importiamo useContext per consumare il nostro contesto globale ed accedere ai dati
+import { GlobalContext } from "../providers/globalContext" // Importiamo il contesto che voglimao consumare e dalla quale vogliamo prendere i dati
+
 const TaskList = () => {
+
+    const { tasks } = useContext(GlobalContext)
+
     return (
-        <h1>Benvenuto su TaskList</h1>
+        tasks.map((tasks) => {
+            return <div>{tasks.title}</div>
+        })
     )
 
 }
