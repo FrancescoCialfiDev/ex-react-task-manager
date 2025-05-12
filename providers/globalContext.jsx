@@ -2,17 +2,11 @@ import { createContext } from "react";
 const GlobalContext = createContext(); // Creiamo un Context che servirà come contenitore per i dati che vogliamo condividere ( Evita il props Drilling)
 const TASK_URL = import.meta.env.VITE_TASK_URL
 import { useEffect, useState } from "react";
+import { useTasks } from "../hooks/useTasks";
 
 const GlobalProvider = ({ children }) => {
 
-    const [tasks, setTasks] = useState([])
-    useEffect(() => {
-        fetch(TASK_URL)
-            .then(res => res.json())
-            .then(data => setTasks(data))
-            .catch(err => console.error(err))
-    }, [])
-
+    const { tasks, addTask, removeTask, updateTask } = useTasks()
 
     return (
         // Il Provider avvolge i componenti figli e fornisce loro accesso ai dati tramite la prop 'value'
