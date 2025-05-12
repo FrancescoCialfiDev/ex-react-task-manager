@@ -15,7 +15,10 @@ const TaskList = () => {
                 <thead>
                     <tr>
                         {intestazioni.map((intestazione, index) => {
-                            return <th key={index} className="border p-3">{intestazione}</th>
+                            return <th
+                                key={index}
+                                className="border p-3"
+                                style={{ backgroundColor: "rgba(2, 45, 73, 0.99)", color: "white" }}>{intestazione}</th>
                         })}
                     </tr>
                 </thead>
