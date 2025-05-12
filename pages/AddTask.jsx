@@ -3,7 +3,9 @@
 const AddTask = () => {
 
     return (
-        <h1>Task</h1>
+        <>
+            <h1>Task</h1>
+        </>
     )
 
 }
