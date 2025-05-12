@@ -2,5 +2,10 @@
   padding: 12px;
   height: 100px;
   width: 100%;
-  background-color: rgba(27, 11, 11, 0.274);
+}
+.customNav {
+  background-color: rgb(112, 112, 112);
+}
+.customNav a {
+  color: rgb(255, 255, 255);
 }

@@ -5,7 +5,7 @@ const HeaderComponent = () => {
 
     return (
         <header className={style.header}>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary h-100">
+            <nav className={`navbar navbar-expand-lg h-100 ${style.customNav}`}>
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
