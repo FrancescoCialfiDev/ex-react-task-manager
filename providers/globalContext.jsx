@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import { createContext } from "react"; // Importiamo createContext per creare il nostro contesto globale
 const GlobalContext = createContext(); // Creiamo un Context che servirà come contenitore per i dati che vogliamo condividere ( Evita il props Drilling)
-import { useTasks } from "../hooks/useTasks";
+import { useTasks } from "../hooks/useTasks";  // Importiamo useTask per utilizzare il nostro custom hook
 
 const GlobalProvider = ({ children }) => {
 

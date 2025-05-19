@@ -1,6 +1,5 @@
 export const EditTaskModal = ({ show, onClose, onSave, task }) => {
 
-
     const values = {
         show,
         onClose,

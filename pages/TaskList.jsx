@@ -5,23 +5,28 @@ import { TaskRow } from "../components/TaskRow"
 
 const TaskList = () => {
 
-    const { tasks } = useContext(GlobalContext)
-    const intestazioni = ["Nome", "Stato", "Data di creazione"]
+    const { tasks } = useContext(GlobalContext);
 
     return (
-
         <>
             <table>
+
+                {/* Intestazione Tabella */}
                 <thead>
                     <tr>
-                        {intestazioni.map((intestazione, index) => {
-                            return <th
-                                key={index}
-                                className="border p-3"
-                                style={{ backgroundColor: "rgba(2, 45, 73, 0.99)", color: "white" }}>{intestazione}</th>
-                        })}
+                        {["Nome", "Stato", "Data di creazione"].map((intestazione, index) => {
+                            return (
+                                <th
+                                    key={index}
+                                    className="border p-3"
+                                    style={{ backgroundColor: "rgba(2, 45, 73, 0.99)", color: "white" }}>{intestazione}
+                                </th>
+                            )
+                        })};
                     </tr>
                 </thead>
+
+                {/* Corpo della tabella */}
                 <tbody>
                     {tasks.map((task) => {
                         return (
