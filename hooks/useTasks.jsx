@@ -15,28 +15,55 @@ const useTasks = () => {
     }, []);
 
     // Funzione per l'aggiunta delle nuove task
-    function addTask(newTask) {
+    async function addTask(newTask) {
+        const response = await fetch(URL_TASKS, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newTask)
+        });
 
-        fetch(URL_TASKS, {
-            method: "POST", // Settiamo il tipo di richiesta HTTP ( POST )
-            headers: { "Content-Type": "application/json" }, // Configuriamo gli headers e specifichiamo il tipo di file inviato
-            body: JSON.stringify(newTask) // Parsiamo l'oggetto in stringa da inviare al nostro backEnd ( Express lo esegue in automatico )
+        const data = await response.json();
+
+        if (!data.success) throw new Error(data.message);
+
+        setTasks(prev => [...prev, data.task]);
+    }
+
+    function removeTask(taskId) {
+        fetch(URL_TASKS + "/" + taskId, {
+            method: "DELETE"
         })
-            .then(result => result.json())
-            .then(response => {
-                if (response.success === true) {
-                    setTasks(prev => ([...prev, response.task]))
-                    alert("Task aggiunta con successo")
+            .then((result) => result.json())
+            .then((response) => {
+                if (response.success) {
+                    setTasks(task => task.filter((task) => taskId !== parseInt(task.id)))
+                    alert("Task rimossa con successo")
                 } else {
-                    throw new Error(response.message)
+                    throw new Error("Impossibile eliminare la task");
                 }
             })
-            .catch(err => alert(err.message))
+            .catch((error) => alert(error.message))
 
-    };
 
-    function removeTask() { }; // Rimuovi Task
-    function updateTask() { }; // Aggiorna Task
+    }; // Rimuovi Task
+
+    function updateTask(taskId, updatedTask) {
+        fetch(URL_TASKS + "/" + taskId, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedTask)
+        })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    console.log(tasks.map((task) => task.id === Number(taskId)))
+                    setTasks((tasks) => tasks.map((task) => task.id === Number(taskId) ? result.task : task))
+                } else {
+                    throw new Error("Errore nella modifica")
+                }
+            })
+            .catch(error => console.error(error))
+    }; // Aggiorna Task
 
     return { tasks, addTask, removeTask, updateTask }; // Esportazione degli elementi necessari alla gestione dei tasks
 }

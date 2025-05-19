@@ -4,11 +4,11 @@ import { useTasks } from "../hooks/useTasks";
 
 const GlobalProvider = ({ children }) => {
 
-    const { tasks, addTask, removeTask, updateTask } = useTasks()
+    const taskData = useTasks()
 
     return (
         // Il Provider avvolge i componenti figli e fornisce loro accesso ai dati tramite la prop 'value'
-        <GlobalContext.Provider value={{ tasks, addTask }}>
+        <GlobalContext.Provider value={{ ...taskData }}>
             {children}
         </GlobalContext.Provider>
     );

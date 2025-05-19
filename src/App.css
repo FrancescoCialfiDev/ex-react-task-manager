@@ -13,3 +13,6 @@ select {
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.342);
 }
+.overlay {
+  background-color: rgba(0, 0, 0, 0.295);
+}
