@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"; // Importiamo useState("Gestione St
 const URL_TASKS = import.meta.env.VITE_TASK_URL; // Utilizziamo una variabile di ambiente per centralizzare la nostra url
 
 const useTasks = () => {
-
     const [tasks, setTasks] = useState([]); // Creazione di uno stato locale e gestione dei dati al montaggio del componente con useEffect()
 
     // Otteniamo i dati dal nostro BE e salviamo le task ottenute nella nostra variabile di stato
@@ -48,7 +47,7 @@ const useTasks = () => {
     }; // Rimuovi Task
 
     function updateTask(taskId, updatedTask) {
-        fetch(URL_TASKS + "/" + taskId, {
+        return fetch(URL_TASKS + "/" + taskId, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedTask)
@@ -56,16 +55,14 @@ const useTasks = () => {
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
-                    console.log(tasks.map((task) => task.id === Number(taskId)))
                     setTasks((tasks) => tasks.map((task) => task.id === Number(taskId) ? result.task : task))
                 } else {
                     throw new Error("Errore nella modifica")
                 }
             })
-            .catch(error => console.error(error))
     }; // Aggiorna Task
 
-    return { tasks, addTask, removeTask, updateTask }; // Esportazione degli elementi necessari alla gestione dei tasks
+    return { tasks, setTasks, addTask, removeTask, updateTask }; // Esportazione degli elementi necessari alla gestione dei tasks
 }
 
 export { useTasks }
