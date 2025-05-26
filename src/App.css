@@ -3,16 +3,27 @@
   margin: 0px;
   box-sizing: border-box;
 }
+
 input {
   padding: 5px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.342);
 }
+
 select {
   padding: 5px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.342);
 }
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.295);
+}
+
+.tabella {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 15px 17px 31px -7px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 15px 17px 31px -7px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 15px 17px 31px -7px rgba(0, 0, 0, 0.5);
+  margin-bottom: 60px;
 }

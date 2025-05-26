@@ -22,10 +22,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<DefautlLayout />}>                                     {/* Route principale che applica il layout predefinito a tutte le pagine */}
-              <Route path='/' element={<></>} />                                    {/* Pagina iniziale (homepage) - attualmente senza contenuto specifico */}
+              <Route path='/' element={<TaskList />} />                             {/* Pagina per visualizzare la lista delle attività */}
               <Route path='/task/:id' element={<SinglePageDetails />} />            {/* Pagina iniziale (homepage) - attualmente senza contenuto specifico */}
               <Route path='/addTask' element={<AddTask />} />                       {/* Pagina per aggiungere una nuova attività */}
-              <Route path='/taskList' element={<TaskList />} />                     {/* Pagina per visualizzare la lista delle attività */}
             </Route>
           </Routes>
         </BrowserRouter>

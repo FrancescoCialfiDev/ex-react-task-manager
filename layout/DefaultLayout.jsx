@@ -5,10 +5,9 @@ const DefautlLayout = () => {
     return (
         <>
             <HeaderComponent />
-            <main style={{ height: "calc(100vh - 200px)", padding: "10px", backgroundColor: "rgb(217, 221, 224)" }}>
+            <main style={{ height: "calc(100vh - 80px)", padding: "10px", backgroundColor: "rgb(50, 64, 95)" }}>
                 <Outlet />
             </main>
-            <footer style={{ height: "100px" }}></footer>
         </>
     )
 }

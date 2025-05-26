@@ -13,22 +13,12 @@ const HeaderComponent = () => {
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink to={"/"} className="nav-link" aria-current="page">Home</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to={"/"} className="nav-link">Contatti</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to={"/taskList"} className="nav-link">Lista Tasks</NavLink>
+                                <NavLink to={"/"} className="nav-link">Lista Tasks</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to={"/addTask"} className="nav-link">Aggiungi Task</NavLink>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Cerca</button>
-                        </form>
                     </div>
                 </div>
             </nav>

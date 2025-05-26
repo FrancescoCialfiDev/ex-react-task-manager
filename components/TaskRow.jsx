@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom'
 const TaskRow = memo(({ title, status, createdAt, id }) => {
   return (
     <tr
-      className="border"
+      className="border-3 border-white"
       key={id}
       style={{ backgroundColor: 'rgba(22, 118, 196, 0.52)', color: 'white' }}
     >
-      <td className="border p-3">
+      <td className="border-3 border-white p-3">
         <Link to={`/task/${id}`}>{title}</Link>
       </td>
-      <td className={`border p-3 ${setColor(status)}`}>{status}</td>
-      <td className="border p-3">{createdAt}</td>
+      <td className={`border-3 border-white p-3 ${setColor(status)}`}>{status}</td>
+      <td className="border-3 border-white p-3">{createdAt}</td>
     </tr>
   )
 })

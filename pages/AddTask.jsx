@@ -45,47 +45,50 @@ const AddTask = () => {
 
 
   return (
-    <form className="d-flex flex-column gap-3 bg-white rounded-3 p-4" onSubmit={(event) => { event.preventDefault() }}>
+    <div className="d-flex h-100 justify-content-center align-items-center">
+      <form className="w-50 d-flex flex-column gap-3 bg-white rounded-3 p-4" onSubmit={(event) => { event.preventDefault() }}>
 
-      {/* Titolo delle Tasks */}
-      <label>
-        <h6>Titolo</h6>
-        <input
-          type="text"
-          placeholder="Inserisci il titolo..."
-          onChange={(event) => { setTitle(event.target.value) }}
-          value={title}
-        />
-        {titleError && <p className="text-danger">{titleError}</p>}
-      </label>
+        {/* Titolo delle Tasks */}
+        <label>
+          <h6>Titolo</h6>
+          <input
+            type="text"
+            placeholder="Inserisci il titolo..."
+            onChange={(event) => { setTitle(event.target.value) }}
+            value={title}
+          />
+          {titleError && <p className="text-danger">{titleError}</p>}
+        </label>
 
-      {/* Descrizione delle Tasks */}
-      <label>
-        <h6>Descrizione</h6>
-        <textarea
-          ref={decriptionRef}
-          placeholder="Inserisci una descrizione..."
-          className="p-2"
-        >
-        </textarea>
-      </label>
+        {/* Descrizione delle Tasks */}
+        <label>
+          <h6>Descrizione</h6>
+          <textarea
+            ref={decriptionRef}
+            placeholder="Inserisci una descrizione..."
+            className="p-2"
+          >
+          </textarea>
+        </label>
 
-      {/* Stato della Task */}
-      <label>
-        <h6>Stato</h6>
-        <select
-          ref={statusRef}
-          defaultValue="To do"
-        >
-          {["To do", "Doing", "Done"].map((state, index) => {
-            return <option key={index} value={state}>{state}</option>
-          })}
-        </select>
-      </label>
+        {/* Stato della Task */}
+        <label>
+          <h6>Stato</h6>
+          <select
+            ref={statusRef}
+            defaultValue="To do"
+          >
+            {["To do", "Doing", "Done"].map((state, index) => {
+              return <option key={index} value={state}>{state}</option>
+            })}
+          </select>
+        </label>
 
-      <button onClick={sendForm}>Invia</button>
+        <button onClick={sendForm}>Invia</button>
 
-    </form>
+      </form>
+    </div>
+
   )
 
 }
