@@ -5,6 +5,7 @@ import { setColor } from "../components/TaskRow"
 import { Modal } from "../components/modal";
 import { createPortal } from "react-dom";
 import { EditTaskModal } from "../components/EditTaskModal";
+import { motion } from "framer-motion";
 
 const SinglePageDetails = () => {
 
@@ -29,7 +30,7 @@ const SinglePageDetails = () => {
 
     singleTask ?
 
-      <div className="bg-white rounded-2 p-3 shadow">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }} className="bg-white rounded-2 p-3 shadow">
 
         <section>
           <div className="d-flex">
@@ -56,7 +57,6 @@ const SinglePageDetails = () => {
 
         </div>
 
-
         {isShow && <Modal
           title={"Conferma Eliminazione"}
           content={"Sei sicuro di voler eliminare la task"}
@@ -74,7 +74,7 @@ const SinglePageDetails = () => {
           onClose={() => { setIsUpdateShow(false) }}
         />}
 
-      </div> : "Nessuna task disponibile"
+      </motion.div> : "Nessuna task disponibile"
   )
 }
 

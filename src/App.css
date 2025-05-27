@@ -27,3 +27,9 @@ select {
   -moz-box-shadow: 15px 17px 31px -7px rgba(0, 0, 0, 0.5);
   margin-bottom: 60px;
 }
+
+#addTask {
+  box-shadow: 15px 17px 31px -7px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 15px 17px 31px -7px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 15px 17px 31px -7px rgba(0, 0, 0, 0.5);
+}

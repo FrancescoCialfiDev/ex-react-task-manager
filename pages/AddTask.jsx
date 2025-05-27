@@ -1,6 +1,6 @@
 //Import degli elementi necessari
 import { useState, useRef, useContext, useMemo } from "react";         // Importiamo le hooks necessarie
-import { useNavigate } from "react-router-dom";                        // Importiamo useNavigate per la navigazione programmatica
+import { motion } from "framer-motion";
 import { GlobalContext } from "../providers/globalContext";            // Importiamo il contesto da consumare per la ricezione dei dati
 
 //Import degli elementi necessari
@@ -45,8 +45,12 @@ const AddTask = () => {
 
 
   return (
-    <div className="d-flex h-100 justify-content-center align-items-center">
-      <form className="w-50 d-flex flex-column gap-3 bg-white rounded-3 p-4" onSubmit={(event) => { event.preventDefault() }}>
+    <motion.div
+      initial={{ opacity: 0, x: -300 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className="d-flex h-100 justify-content-center align-items-center">
+      <form id="addTask" className="w-50 d-flex flex-column gap-3 bg-white rounded-3 p-4" onSubmit={(event) => { event.preventDefault() }}>
 
         {/* Titolo delle Tasks */}
         <label>
@@ -87,7 +91,7 @@ const AddTask = () => {
         <button onClick={sendForm}>Invia</button>
 
       </form>
-    </div>
+    </motion.div>
 
   )
 
